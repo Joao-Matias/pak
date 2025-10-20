@@ -5,10 +5,8 @@ import Nav from '../nav';
 const Home = () => {
   return (
     <main className={style.main}>
-      <header className={style.header}>
-        <div className={style.logoContainer}>Logo</div>
-        <Nav />
-      </header>
+      <Nav />
+
       <section className={style.heroContainer}>
         <div className={style.faceImgBox}>
           <img src='../../img/face.jpeg' className={style.faceImg} />

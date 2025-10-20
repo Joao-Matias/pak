@@ -5,18 +5,6 @@
   grid-template-rows: 1fr 4fr;
 }
 
-.header {
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-  width: inherit;
-}
-
-.logoContainer {
-  font-size: 3rem;
-  display: flex;
-  justify-content: center;
-}
-
 .heroContainer {
   position: relative;
   height: 80%;
