@@ -1,5 +1,5 @@
 import style from './home.module.css';
-
+import heroImg from '../../../img/face.jpeg';
 import Nav from '../nav';
 
 const Home = () => {
@@ -9,7 +9,7 @@ const Home = () => {
 
       <section className={style.heroContainer}>
         <div className={style.faceImgBox}>
-          <img src='../../img/face.jpeg' className={style.faceImg} />
+          <img src={heroImg} className={style.faceImg} />
         </div>
         <div className={style.quoteContainer}>
           <p className={style.quote}>
