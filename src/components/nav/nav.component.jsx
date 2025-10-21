@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import style from './nav.module.css';
+import { Link } from 'react-router';
 
 import { RiMenuLine, RiMenuUnfold4Line } from 'react-icons/ri';
 
@@ -30,10 +31,26 @@ const Nav = () => {
           )}
           <div className={style.menuContainer}>
             <ul className={!isMenuOpen ? style.optionContainer : style.optionContainerOpened}>
-              <li>About me</li>
-              <li>Contact</li>
-              <li>Free Resources</li>
-              <li>Book Chat</li>
+              <li>
+                <Link to={'/aboutme'}>
+                  <p>About me</p>
+                </Link>
+              </li>
+              <li>
+                <Link to={'/contactdetails'}>
+                  <p>Contact</p>
+                </Link>
+              </li>
+              <li>
+                <Link to={'/resources'}>
+                  <p>Free Resources</p>
+                </Link>
+              </li>
+              <li>
+                <Link to={'/bookappt'}>
+                  <p>Book Chat</p>
+                </Link>
+              </li>
             </ul>
           </div>
         </>
@@ -42,10 +59,26 @@ const Nav = () => {
       return (
         <>
           <ul className={style.optionContainermenuContainerNormal}>
-            <li>About me</li>
-            <li>Contact</li>
-            <li>Free Resources</li>
-            <li>Book Chat</li>
+            <li>
+              <Link to={'/aboutme'}>
+                <p>About me</p>
+              </Link>
+            </li>
+            <li>
+              <Link to={'/contactdetails'}>
+                <p>Contact</p>
+              </Link>
+            </li>
+            <li>
+              <Link to={'/resources'}>
+                <p>Free Resources</p>
+              </Link>
+            </li>
+            <li>
+              <Link to={'/bookappt'}>
+                <p>Book Chat</p>
+              </Link>
+            </li>
           </ul>
         </>
       );
@@ -54,7 +87,9 @@ const Nav = () => {
 
   return (
     <header className={style.header}>
-      <div className={style.logoContainer}>Logo</div>
+      <Link to={'/'}>
+        <div className={style.logoContainer}>Logo</div>
+      </Link>
       <nav className={style.navContainer}>{renderNav()}</nav>
     </header>
   );

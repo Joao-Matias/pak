@@ -61,10 +61,11 @@
   justify-content: center;
 }
 
-.optionContainerOpened li,
-.optionContainer li {
+.optionContainerOpened p,
+.optionContainer p {
   margin-bottom: 1rem;
   margin-top: 1rem;
+  font-size: 1.5rem;
 }
 
 @media (min-width: 48em) {
@@ -87,5 +88,9 @@
     font-size: 3rem;
     justify-content: space-between;
     width: 100%;
+  }
+
+  .optionContainermenuContainerNormal p {
+    font-size: 1.5rem;
   }
 }
