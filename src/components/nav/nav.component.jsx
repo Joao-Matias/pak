@@ -4,7 +4,9 @@ import { Link } from 'react-router';
 
 import { RiMenuLine, RiMenuUnfold4Line } from 'react-icons/ri';
 
-const Nav = () => {
+const Nav = (props) => {
+  const { setActivePage } = props;
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [width, setWidth] = useState(window.innerWidth);
 
@@ -14,10 +16,14 @@ const Nav = () => {
     });
   }, []);
 
-  const handleManuClick = () => {
+  const handleMenuClick = () => {
     setIsMenuOpen((prevState) => {
       return !prevState;
     });
+  };
+
+  const handleChangingPage = (newPage) => {
+    setActivePage(newPage);
   };
 
   const renderNav = () => {
@@ -25,29 +31,49 @@ const Nav = () => {
       return (
         <>
           {!isMenuOpen ? (
-            <RiMenuLine className={style.menuIcon} onClick={handleManuClick} />
+            <RiMenuLine className={style.menuIcon} onClick={handleMenuClick} />
           ) : (
-            <RiMenuUnfold4Line className={style.menuIconOpen} onClick={handleManuClick} />
+            <RiMenuUnfold4Line className={style.menuIconOpen} onClick={handleMenuClick} />
           )}
           <div className={style.menuContainer}>
             <ul className={!isMenuOpen ? style.optionContainer : style.optionContainerOpened}>
               <li>
-                <Link to={'/aboutme'}>
+                <Link
+                  to={'/aboutme'}
+                  onClick={() => {
+                    handleChangingPage('/aboutme');
+                  }}
+                >
                   <p>About me</p>
                 </Link>
               </li>
               <li>
-                <Link to={'/contactdetails'}>
+                <Link
+                  to={'/contactdetails'}
+                  onClick={() => {
+                    handleChangingPage('/contactdetails');
+                  }}
+                >
                   <p>Contact</p>
                 </Link>
               </li>
               <li>
-                <Link to={'/resources'}>
+                <Link
+                  to={'/resources'}
+                  onClick={() => {
+                    handleChangingPage('/resources');
+                  }}
+                >
                   <p>Free Resources</p>
                 </Link>
               </li>
               <li>
-                <Link to={'/bookappt'}>
+                <Link
+                  to={'/bookappt'}
+                  onClick={() => {
+                    handleChangingPage('/bookappt');
+                  }}
+                >
                   <p>Book Chat</p>
                 </Link>
               </li>
@@ -60,22 +86,42 @@ const Nav = () => {
         <>
           <ul className={style.optionContainermenuContainerNormal}>
             <li>
-              <Link to={'/aboutme'}>
+              <Link
+                to={'/aboutme'}
+                onClick={() => {
+                  handleChangingPage('/aboutme');
+                }}
+              >
                 <p>About me</p>
               </Link>
             </li>
             <li>
-              <Link to={'/contactdetails'}>
+              <Link
+                to={'/contactdetails'}
+                onClick={() => {
+                  handleChangingPage('/contactdetails');
+                }}
+              >
                 <p>Contact</p>
               </Link>
             </li>
             <li>
-              <Link to={'/resources'}>
+              <Link
+                to={'/resources'}
+                onClick={() => {
+                  handleChangingPage('/resources');
+                }}
+              >
                 <p>Free Resources</p>
               </Link>
             </li>
             <li>
-              <Link to={'/bookappt'}>
+              <Link
+                to={'/bookappt'}
+                onClick={() => {
+                  handleChangingPage('/bookappt');
+                }}
+              >
                 <p>Book Chat</p>
               </Link>
             </li>
@@ -87,7 +133,12 @@ const Nav = () => {
 
   return (
     <header className={style.header}>
-      <Link to={'/'}>
+      <Link
+        to={'/'}
+        onClick={() => {
+          handleChangingPage('/');
+        }}
+      >
         <div className={style.logoContainer}>Logo</div>
       </Link>
       <nav className={style.navContainer}>{renderNav()}</nav>

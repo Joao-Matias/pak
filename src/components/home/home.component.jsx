@@ -1,24 +1,27 @@
 import style from './home.module.css';
-import heroImg from '../../../img/face.jpeg';
 import Nav from '../nav';
+import { useState } from 'react';
+
+import Aboutme from '../aboutme';
+import Bookappt from '../bookappt';
+import Contactdetails from '../contactdetails';
+import Resources from '../resources';
+import Landing from '../landing';
+import { useLocation } from 'react-router';
 
 const Home = () => {
+  const { pathname } = useLocation();
+  const [activePage, setActivePage] = useState(pathname);
+
   return (
     <main className={style.main}>
-      <Nav />
+      <Nav setActivePage={setActivePage} />
 
-      <section className={style.heroContainer}>
-        <div className={style.faceImgBox}>
-          <img src={heroImg} className={style.faceImg} />
-        </div>
-        <div className={style.quoteContainer}>
-          <p className={style.quote}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium placeat expedita praesentium tempore
-            aut rem libero deserunt officia laudantium, incidunt animi fuga consectetur repudiandae. Commodi a officiis
-            excepturi aperiam at.
-          </p>
-        </div>
-      </section>
+      {activePage === '/aboutme' && <Aboutme />}
+      {activePage === '/bookappt' && <Bookappt />}
+      {activePage === '/contactdetails' && <Contactdetails />}
+      {activePage === '/resources' && <Resources />}
+      {activePage === '/' && <Landing />}
     </main>
   );
 };

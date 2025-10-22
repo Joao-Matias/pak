@@ -1,0 +1,30 @@
+.heroContainer {
+  position: relative;
+  height: 80%;
+  width: inherit;
+  margin-top: 5rem;
+}
+
+.faceImgBox {
+}
+
+.faceImg {
+  position: absolute;
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.quoteContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.quote {
+  position: absolute;
+  background-color: transparent;
+  color: white;
+  font-size: 1.8rem;
+  top: 13rem;
+}

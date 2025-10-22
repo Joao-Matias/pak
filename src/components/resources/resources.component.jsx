@@ -1,10 +1,8 @@
 import style from './resources.module.css';
-import Nav from '../nav';
 
 const Resources = () => {
   return (
-    <main className={style.main}>
-      <Nav />
+    <main>
       <h1>RESOURCES</h1>
     </main>
   );
